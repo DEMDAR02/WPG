@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dz4</title>
+</head>
+<body>
+   <script>
+const fio = [];
+
+fio[0] = prompt('Как Ваше фамилия?', '');
+fio[1] = prompt('Как Ваша имя?', '');
+fio[2] = prompt('Как ваше отчество?', '');
+//alert('Ваше Фио'+fio);
+let middle_name = fio[2];
+console.log('midle_name=',middle_name);
+function gender(middle_name){
+            let end_index = middle_name.length - 1; // последний симв.
+            let pre_end_index = end_index - 1; // пред последний симв.
+            let last_symbols = (middle_name[pre_end_index] + middle_name[end_index]).toUpperCase();  // окончание отчества
+            let gender; //= true;
+
+            if (last_symbols == 'ИЧ') {
+                gender = 'м' //false; 
+            } else if (last_symbols == 'ЛЫ') {
+                gender = 'м'//false; //м
+            } else if (last_symbols == 'НА') {
+                gender = 'ж' //true; //ж
+            } else if (last_symbols == 'ЗЫ') {
+                gender = 'ж' //true; //ж
+                
+             
+
+            }        
+
+          return gender;
+        
+        }
+        let g = gender(middle_name);
+        console.log('gender=',g); 
+        let car;
+        function selectCar(middle_name){
+            if (g='ж') {
+                car = 'BMW';
+            }
+    else 
+           if (g='м'){
+            car='Nissan';
+           }
+    return car;
+}
+let gcar = selectCar(middle_name);
+console.log('gcar',gcar);
+var vopros = confirm('Ваша машина' + ' ' + gcar + '?');
+    if (vopros==true) {
+        alert ('Ваш профиль' +' ' + fio+' '+ g +' ' +gcar );
+    } else if (vopros==false) {
+       var pcar = prompt('Ваш автомобиль?');
+       let pcar_save = pcar;
+       alert('Ваш профиль'+' ' + fio+' '+ g +' ' +pcar_save );
+    }
+;
+</script>
+</body>
+</html>
